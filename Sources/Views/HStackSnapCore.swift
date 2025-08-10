@@ -92,6 +92,10 @@ public struct HStackSnapCore<Content: View>: View {
             })
             .contentShape(Rectangle())
             .simultaneousGesture(snapDrag)
+            .highPriorityGesture(
+                TapGesture()
+                    .exclusively(before: snapDrag) 
+            )
         }
         .coordinateSpace(name: coordinateSpace)
     }
